@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Destructuring assignment</title>
+    <meta charset="utf-8">
+    <script src="//gnab.github.io/remark/downloads/remark-latest.min.js"></script>
+    <style>
+        @import url(//fonts.googleapis.com/css?family=Droid+Serif);
+        @import url(//fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+    </style>
+    <link rel="stylesheet" type="text/css" href="../../css/slides.css">
+</head>
+<body>
+<textarea id="source">
+
+class: left, middle
+background-image: url(../../images/master-folie.png)
+
+.title[
+## JavaScript ES6
+<br/>    
+### Supun Lakmal
+]
+    
+---
+    
+# Why ES6?
+    
+*JavaScript ES6 brings new syntax and new awesome features to make your code more modern and more readable. It allows you to write less code and do more. ES6 introduces us to many great features like arrow functions, template strings, class destruction, Modules… *
+
+---
+
+# let
+
+*let can be reassigned and take new value. It creates a mutable variable. *
+
+### ES6
+
+```js
+let name ="supun";
+
+console.log(name)
+// output --> supun
+
+name ="lakmal";
+
+console.log(name)
+// output --> lakmal
+```
+
+---
+
+# const
+
+*
+const is a new keyword in ES6 for declaring variables. const is more powerful than var. Once used, the variable can’t be reassigned. *
+
+```js
+// ES5
+var myBtn = document.getElementById('mybtn');
+
+// ES6
+const myBtn = document.getElementById('mybtn');
+
+```
+
+*In the code above, const will not change and cannot be reassigned. If you try to give it a new value, it will return you an error.*
+
+---
+# Arrow functions
+*The arrow function is really awesome, and makes your code more readable, more structured, and look like modern code*
+
+```js
+// ES5
+
+function myFunc(name) {
+    return 'Hello '+name
+}
+
+console.log(myFunc('world'));
+// output -> Hello world
+```
+
+```js
+// ES6
+
+const myFunc = name => {
+    return 'Hello '+name
+}
+
+console.log(myFunc('world'));
+// output -> Hello world
+```
+---
+#Template Literals
+
+*We don’t have to use the plus (+) operator to concatenate strings, or when we want to use a variable inside a string.*
+
+```js 
+//ES5
+function myFunc(name ,language) {
+    return "I'm "+name+ " and I like "+language;
+}
+
+console.log(myFunc('Supun','javascript'));
+
+//output --> I'm Supun and I like javascript
+
+```
+
+```js 
+//ES6
+function myFunc(name ,language) {
+    return `I'm ${name} and I like ${language}`;
+}
+
+console.log(myFunc('Supun','javascript'));
+
+//output --> I'm Supun and I like javascript
+
+```
+
+---
+
+
+</textarea>
+<script>
+    var slideshow = remark.create({
+        highlightLanguage: 'javascript', highlightStyle: 'idea', navigation: {scroll: false}
+    });
+</script>
+</body>
+</html>
