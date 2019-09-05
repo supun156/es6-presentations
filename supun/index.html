@@ -8,7 +8,7 @@
         @import url(//fonts.googleapis.com/css?family=Droid+Serif);
         @import url(//fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
     </style>
-    <link rel="stylesheet" type="text/css" href="../../css/slides.css">
+    <link rel="stylesheet" type="text/css" href="../css/slides.css">
 </head>
 <body>
 <textarea id="source">
@@ -23,16 +23,43 @@ background-image: url(../../images/master-folie.png)
 ]
     
 ---
+
+# History of javascript
+
+*Brendan Eich, a Netscape Communications Corporation programmer, created JavaScript in September 1995.
+ It took Eich only 10 days to develop the scripting language*
+
+![Default-aligned image](images/220px-Brendan_Eich_Mozilla_Foundation_official_photo.jpg)
+
+*In **1996** javascript rename as a **ECMAScript**.*
+
+*In **1998** release  **ECMAScript 2** *
+
+*In **1999**  release  **ECMAScript 3** *
+
+*In **2008**  release **EcmaScript 6 (ES6)** *
+
+---
     
 # Why ES6?
     
-*JavaScript ES6 brings new syntax and new awesome features to make your code more modern and more readable. It allows you to write less code and do more. ES6 introduces us to many great features like arrow functions, template strings, class destruction, Modules… *
+*JavaScript ES6 brings new syntax and new awesome features to make your code more modern and more readable. It allows you to write less code and do more. ES6 introduces us to many great features like  **arrow functions, template strings, class destruction, Modules**… *
 
 ---
 
 # let
 
 *let can be reassigned and take new value. It creates a mutable variable. *
+
+### ES5
+```js
+var name ="supun";
+
+console.log(name)
+// output --> supun
+
+```
+
 
 ### ES6
 
@@ -119,6 +146,34 @@ console.log(myFunc('Supun','javascript'));
 //output --> I'm Supun and I like javascript
 
 ```
+---
+
+
+```js
+
+// ES5
+
+console.log('string text line 1\n' +
+'string text line 2');
+
+// "string text line 1
+// string text line 2"
+
+```
+```js
+
+//ES6
+
+console.log(`string text line 1
+  string text line 2`);
+
+
+// "string text line 1
+// string text line 2"
+
+```
+
+
 
 ---
 
@@ -185,35 +240,166 @@ console.log(name);
 console.log(age);
 //output -> 22
 ```
-
 ---
 
-#Import and export (1/2)
+#Import and export 
 
-*Using `import` and `export` in your JavaScript application makes it more powerful. They allow you to create separate and reusable components.*
+*Using **import** and **export** in your JavaScript application makes it more powerful. They allow you to create separate and reusable components.*
 
 *For example, we have two files. The first is named **contactsComponent.js** and the second is named **homeComponent.js** .*
-
----
-
-#Import and export (2/2)
 
 ### contactsComponent.js
 
 ```js 
 export default function contact(name, age) {
-    return `Hello ${name}`, your age is ${age} years old!`;
+    return `Hello ${name} , your age is ${age} years old!`;
 }
 ```
 
-
 *And if we want to use this function in homeComponent.js, we will just use **import**.*
 
-
+### homeComponent.js
 ```js 
-import contact from
+import contact from './contactsComponent';
+
+console.log(contact('Nimal' ,22));
+//output -> Hello Nimal, your age is 22 years old!
 
 ```
+
+---
+
+# Classes 
+
+
+*
+Classes are the core of object oriented programming (OOP). They make your code more secure and encapsulated. Using classes gives your code a nice structure and keeps it oriented.
+*
+
+### ES5
+
+```js  
+var Human = function () {};
+Human.prototype.sayHello = function () {
+    console.log('hi');
+}
+
+```
+### ES6
+
+```js
+class Human {
+    sayHello () {
+        console.log('hi');
+    }
+}
+```
+
+---
+#   constructor (1/2)
+
+*Constructor is used to create an Object, with some values or can be a default/empty.*
+
+in ES5:
+```js
+var Human = function (name) {
+    this.name = name;
+};
+
+Human.prototype.sayHello = function () {
+    console.log('hi');
+}
+
+var user = new Human('Nimal');
+
+console.log(user.name); 
+//output->  Nimal
+```
+
+
+---
+#   constructor (2/2)
+
+in ES6:
+```js
+class Human {
+    constructor (name) {
+        this.name = name;
+    }
+    sayHello () {
+        console.log('hi');
+    }
+}
+
+var user = new Human('Nimal');
+console.log(user.name); 
+//output->  Nimal
+```
+
+---
+
+# Extending / Inherit classes (1/2)
+
+in ES5:
+
+```js 
+// first class
+var Human = function (name) {
+    this.name = name;
+};
+Human.prototype.sayHello = function () {
+    console.log('hi');
+}
+
+// second class
+var Developer = function (name) {
+    this._super.call(this, name);
+}
+
+Developer.prototype = Object.create(Human.prototype);
+
+Developer.prototype.constructor = Developer;
+
+Developer.prototype._super = Human;
+
+var user = new Developer('Nimal');
+console.log(user.name); 
+//output->  Nimal
+```
+
+
+
+---
+# Extending / Inherit classes (2/2)
+
+in ES6:
+
+```js 
+
+class Human {
+    constructor (name) {
+        this.name = name;
+    }
+    sayHello () {
+        console.log('hi');
+    }
+}
+
+class Developer extends Human {
+    constructor (name) {
+        super(name);
+    }
+ }
+
+ let user = new Developer('Nimal');
+ console.log(user.name); 
+ //output->  Nimal
+```
+
+---
+
+# Thanks..
+
 
 </textarea>
 <script>
