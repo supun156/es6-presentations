@@ -122,6 +122,98 @@ console.log(myFunc('Supun','javascript'));
 
 ---
 
+# object destructing (1/2)
+
+*Destruction makes the assignment of the values of an array or object to the new variable easier.*
+
+```js 
+// ES5
+
+const contacts = {
+    name: 'Nimal',
+    age : 23
+}
+
+let name = contacts.name;
+let age = contacts.age;
+
+console.log(name);
+//output -> Nimal
+
+console.log(age);
+//output -> 22
+```
+
+---
+
+# object destructing (2/2)
+
+*Destruction makes the assignment of the values of an array or object to the new variable easier.*
+
+```js 
+// ES6
+
+const contacts = {
+    name: 'Nimal',
+    age : 23
+}
+
+let {name, age} = contacts;
+
+
+console.log(name);
+//output -> Nimal
+
+console.log(age);
+//output -> 22
+```
+*With ES5, we have to assign each value to each variable. With ES6, we just put our values within curly brackets to get any property of the object.*
+
+---
+
+# Array destructing 
+
+*For the array, we use the same syntax as the object. We have just to replace the curly brackets with square brackets.*
+``` jS
+const arr = ['Nimal' ,22];
+
+let [name, age] = arr;
+
+console.log(name);
+//output -> Nimal
+
+console.log(age);
+//output -> 22
+```
+
+---
+
+#Import and export (1/2)
+
+*Using `import` and `export` in your JavaScript application makes it more powerful. They allow you to create separate and reusable components.*
+
+*For example, we have two files. The first is named **contactsComponent.js** and the second is named **homeComponent.js** .*
+
+---
+
+#Import and export (2/2)
+
+### contactsComponent.js
+
+```js 
+export default function contact(name, age) {
+    return `Hello ${name}`, your age is ${age} years old!`;
+}
+```
+
+
+*And if we want to use this function in homeComponent.js, we will just use **import**.*
+
+
+```js 
+import contact from
+
+```
 
 </textarea>
 <script>
